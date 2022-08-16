@@ -2,7 +2,7 @@
   "name": "api-task2-app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://husainbc070503.github.io/LGMVIP-WebD",
+  "homepage": "https://husainbc070503.github.io/LGMVIP-Webd-Task-2",
   "dependencies": {
     "-": "^0.0.1",
     "@emotion/react": "^11.9.3",
