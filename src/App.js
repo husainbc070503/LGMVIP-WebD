@@ -5,11 +5,11 @@ import { useState } from 'react';
 function App() {
 
   let [state, setState] = useState(true)
+  let [loading, setLoading] = useState(false)
 
   var pg = 1
   const getUsers = function (page) {
     var file = `https://reqres.in/api/users?page=${page}`
-    console.log(file)
     return (
       fetch(file)
         .then(x => x.text())
@@ -32,16 +32,17 @@ function App() {
               `
               }
             }
+
             html()
+
             if (page <= total) {
               document.getElementById('next-users').style.display = 'inline-block'
-              document.getElementById('hide-users').style.display = 'inline-block'
             }
             else {
               alert('No more pages')
               document.getElementById('next-users').style.display = 'none'
             }
-          }
+          },
         )
     )
 
@@ -51,13 +52,21 @@ function App() {
   }
 
   function display() {
+    setLoading(true)
     setState(state = !state)
-    getUsers(pg)
+    setTimeout(() => {
+      getUsers(pg)
+      setLoading(false)
+    }, 4000)
   }
 
   function nextUsers() {
     pg += 1
-    getUsers(pg)
+    setLoading(true)
+    setTimeout(() => {
+      getUsers(pg)
+      setLoading(false)
+    }, 4000)
   }
 
   return (
@@ -73,7 +82,9 @@ function App() {
         <section>
           {
             !state ?
-              <div id="users" >
+              loading ? <div className='loader'>
+                <div className='loader-glass'></div>
+              </div> : <div id="users" >
                 <p id="count"></p>
                 <div id="row"></div>
               </div> : ""

@@ -18,6 +18,7 @@
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
+  padding-bottom: 20px;
 }
 
 /* HEADER */
@@ -128,13 +129,48 @@ header .btn:hover {
   transform: translateY(-15px);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.loader .loader-glass {
+  width: 120px;
+  height: 120px;
+  border: 8px solid white;
+  border-radius: 50%;
+  animation: load 2s ease infinite;
+}
+
+@keyframes load {
+  0% {
+    border-top: 8px solid red;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 8px solid transparent;
   }
 
-  to {
-    transform: rotate(360deg);
+  50% {
+    border-top: 8px solid transparent;
+    border-left: 8px solid transparent;
+    border-right: 8px solid orange;
+    border-bottom: 8px solid transparent;
+  }
+
+  75% {
+    border-top: 8px solid transparent;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 8px solid rgb(47, 0, 255);
+  }
+
+  100% {
+    border-top: 8px solid transparent;
+    border-left: 8px solid rgb(0, 255, 26);
+    border-right: 8px solid transparent;
+    border-bottom: 8px solid transparent;
   }
 }
 
@@ -158,4 +194,14 @@ header .btn:hover {
   .card {
     width: 300px;
   }
+}
+
+body::-webkit-scrollbar {
+  background: white;
+  width: 6px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: #102030;
+  border-radius: 10px;
 }
