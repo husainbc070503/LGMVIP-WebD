@@ -57,7 +57,7 @@ function App() {
     setTimeout(() => {
       getUsers(pg)
       setLoading(false)
-    }, 4000)
+    }, 6000)
   }
 
   function nextUsers() {
@@ -66,7 +66,7 @@ function App() {
     setTimeout(() => {
       getUsers(pg)
       setLoading(false)
-    }, 4000)
+    }, 6000)
   }
 
   return (
@@ -84,6 +84,7 @@ function App() {
             !state ?
               loading ? <div className='loader'>
                 <div className='loader-glass'></div>
+                <span>Loading...</span>
               </div> : <div id="users" >
                 <p id="count"></p>
                 <div id="row"></div>
