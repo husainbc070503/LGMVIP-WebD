@@ -7,7 +7,7 @@ function App() {
   let [state, setState] = useState(true)
   let [loading, setLoading] = useState(false)
 
-  var pg = 1
+  var pg = 1;
   const getUsers = function (page) {
     var file = `https://reqres.in/api/users?page=${page}`
     return (
@@ -32,16 +32,12 @@ function App() {
               `
               }
             }
-
             html()
-
-            if (page <= total) {
-              document.getElementById('next-users').style.display = 'inline-block'
-            }
-            else {
-              alert('No more pages')
+            
+            if (page == total)
               document.getElementById('next-users').style.display = 'none'
-            }
+            else
+              document.getElementById('next-users').style.display = 'inline-block'
           },
         )
     )
